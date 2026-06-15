@@ -1,0 +1,131 @@
+:root {
+  color-scheme: light;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100vh;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, rgba(255,250,244,1) 0%, rgba(255,245,209,1) 100%);
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes floatCard {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-8px);
+  }
+}
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(245,158,11,0.18);
+  }
+  50% {
+    box-shadow: 0 0 24px 8px rgba(245,158,11,0.12);
+  }
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.animate-fade-in {
+  animation: fadeInUp 0.9s ease forwards;
+}
+.animate-float {
+  animation: floatCard 6s ease-in-out infinite alternate;
+}
+.animate-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+.theme-transition,
+.nav-link,
+.menu-card,
+.step-block {
+  transition: background-color 0.45s ease, color 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+}
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.18em solid rgba(255,255,255,0.85);
+  animation: typewriter 2.8s steps(30, end) 1, blink-caret 0.8s step-end infinite;
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: rgba(255,255,255,0.85); }
+}
+.dark body {
+  background: radial-gradient(circle at top, rgba(56,189,248,0.03), transparent 32%), #020617;
+}
+.dark .card-surface {
+  background: rgba(15,23,42,0.92);
+}
+.dark .ghost-panel {
+  background: rgba(15,23,42,0.88);
+}
+.dark .glass-panel {
+  background: rgba(15,23,42,0.55);
+}
+.dark .nav-link:hover,
+.dark .category-button.active,
+.dark .cta-button:hover {
+  color: #fbbf24;
+}
+.dark .section-divider {
+  background: rgba(248,250,252,0.12);
+}
+.dark .banner-card {
+  background: rgba(15,23,42,0.88);
+}
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255,250,244,0.08);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(245,158,11,0.35);
+  border-radius: 999px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: rgba(15,23,42,0.16);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(245,158,11,0.4);
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

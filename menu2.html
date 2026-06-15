@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GustoOro | Signature Patisserie & Wine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' };
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="bg-amber-50 text-slate-950 dark:bg-slate-950 dark:text-slate-100">
+    <div class="min-h-screen">
+      <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-white/70 backdrop-blur-xl dark:bg-slate-950/85 theme-transition">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+          <a href="index.html" class="flex items-center gap-3 text-xl font-semibold tracking-[0.18em] text-slate-950 dark:text-white">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-500 text-slate-950">G</span>
+            GustoOro
+          </a>
+          <nav class="hidden items-center gap-8 lg:flex">
+            <a href="index.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Home</a>
+            <a href="menu.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Menu</a>
+            <a href="menu2.html" class="nav-link text-sm uppercase tracking-[0.24em] text-amber-500 dark:text-amber-300">Patisserie</a>
+            <a href="reservation.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Reserve</a>
+            <a href="about.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">About</a>
+            <a href="contact.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Contact</a>
+          </nav>
+          <div class="flex items-center gap-3">
+            <button id="themeToggle" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-amber-500 shadow-sm transition hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:text-amber-300">
+              <span class="sr-only">Toggle dark mode</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-9H21m-18 0H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 6.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11z" />
+              </svg>
+            </button>
+            <button id="mobileMenuButton" class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white p-3 text-slate-900 shadow-sm transition hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 lg:hidden">
+              <span class="sr-only">Open menu</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white/95 px-6 py-4 dark:border-slate-800 dark:bg-slate-950/95 lg:hidden">
+          <div class="flex flex-col gap-3 text-sm uppercase tracking-[0.24em] text-slate-700 dark:text-slate-300">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="menu.html" class="nav-link">Menu</a>
+            <a href="menu2.html" class="nav-link">Patisserie</a>
+            <a href="reservation.html" class="nav-link">Reserve</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+        </div>
+      </header>
+      <main class="pt-28">
+        <section class="px-6 pb-12 lg:px-8">
+          <div class="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-white/90 p-10 shadow-2xl shadow-amber-100/30 dark:border-slate-700 dark:bg-slate-950/85 dark:shadow-slate-900/40">
+            <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+              <div>
+                <p class="text-sm uppercase tracking-[0.28em] text-amber-600 dark:text-amber-400">Signature patisserie</p>
+                <h1 class="mt-4 text-4xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 sm:text-5xl">High-end dessert dramaturgy, coffee craft, and cellar selections.</h1>
+                <p class="mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">A dessert and beverage portfolio designed for the refined palate, with artisanal textures and luminous plating.</p>
+              </div>
+              <div class="space-y-4 rounded-[1.75rem] border border-amber-100/80 bg-amber-50/90 p-7 shadow-xl shadow-amber-100/50 dark:border-amber-500/20 dark:bg-slate-900/80">
+                <p class="text-sm uppercase tracking-[0.28em] text-amber-700">Highlights</p>
+                <div class="grid gap-4 text-slate-800 dark:text-slate-100">
+                  <div class="rounded-3xl bg-white/90 p-4 dark:bg-slate-950/90">
+                    <p class="text-xs uppercase tracking-[0.28em] text-slate-500">Fine wines</p>
+                    <p class="mt-1 text-sm font-semibold">Rare cellar selections</p>
+                  </div>
+                  <div class="rounded-3xl bg-white/90 p-4 dark:bg-slate-950/90">
+                    <p class="text-xs uppercase tracking-[0.28em] text-slate-500">Patisserie</p>
+                    <p class="mt-1 text-sm font-semibold">Gold-fleck artisan cakes</p>
+                  </div>
+                  <div class="rounded-3xl bg-white/90 p-4 dark:bg-slate-950/90">
+                    <p class="text-xs uppercase tracking-[0.28em] text-slate-500">Coffees</p>
+                    <p class="mt-1 text-sm font-semibold">Single-origin espresso</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="px-6 pb-10 lg:px-8">
+          <div class="mx-auto max-w-7xl">
+            <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <p class="text-sm uppercase tracking-[0.28em] text-amber-600 dark:text-amber-400">Categories</p>
+                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50">Patisserie categories</h2>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <button class="category-button active rounded-full border border-amber-500/20 bg-amber-500/10 px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-amber-700 transition hover:bg-amber-500/15 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-300" data-filter="all">All</button>
+                <button class="category-button rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-700 transition hover:border-amber-500 hover:text-amber-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" data-filter="desserts">Desserts</button>
+                <button class="category-button rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-700 transition hover:border-amber-500 hover:text-amber-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" data-filter="coffee">Coffee</button>
+                <button class="category-button rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-700 transition hover:border-amber-500 hover:text-amber-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" data-filter="wines">Fine Wines</button>
+              </div>
+            </div>
+            <div id="menuGrid" class="mt-10 grid gap-6 lg:grid-cols-2 xl:grid-cols-3"></div>
+          </div>
+        </section>
+      </main>
+
+      <aside id="cartDrawer" class="fixed inset-y-0 right-0 z-40 hidden w-full max-w-md border-l border-slate-200 bg-white shadow-2xl shadow-slate-900/10 dark:border-slate-800 dark:bg-slate-950/95">
+        <div class="flex items-center justify-between border-b border-slate-200 px-6 py-5 dark:border-slate-800">
+          <div>
+            <p class="text-sm uppercase tracking-[0.28em] text-amber-600 dark:text-amber-400">Your Cart</p>
+            <h2 class="mt-2 text-xl font-semibold text-slate-950 dark:text-slate-50">Live order preview</h2>
+          </div>
+          <button id="closeCart" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 text-slate-900 transition hover:border-amber-400 dark:border-slate-700 dark:text-slate-100">
+            <span class="sr-only">Close cart</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex h-[calc(100vh-200px)] flex-col px-6 py-5">
+          <div id="cartItems" class="space-y-4 overflow-y-auto pr-2"></div>
+          <div class="mt-auto space-y-4 border-t border-slate-200 pt-5 dark:border-slate-800">
+            <div class="flex items-center justify-between text-sm text-slate-500 dark:text-slate-400">
+              <span>Subtotal</span>
+              <span id="cartSubtotal">$0.00</span>
+            </div>
+            <div class="flex items-center justify-between text-sm text-slate-500 dark:text-slate-400">
+              <span>Tax</span>
+              <span id="cartTax">$0.00</span>
+            </div>
+            <div class="flex items-center justify-between text-base font-semibold text-slate-950 dark:text-slate-50">
+              <span>Total</span>
+              <span id="cartTotal">$0.00</span>
+            </div>
+            <button id="checkoutButton" class="w-full rounded-3xl bg-amber-500 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-950 transition hover:bg-amber-400">Checkout with WhatsApp</button>
+          </div>
+        </div>
+      </aside>
+
+      <div id="cartBackdrop" class="hidden fixed inset-0 bg-slate-950/40 backdrop-blur-sm"></div>
+    </div>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

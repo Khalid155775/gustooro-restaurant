@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GustoOro | Contact & Location</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' };
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="bg-amber-50 text-slate-950 dark:bg-slate-950 dark:text-slate-100">
+    <div class="min-h-screen">
+      <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-white/70 backdrop-blur-xl dark:bg-slate-950/85 theme-transition">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+          <a href="index.html" class="flex items-center gap-3 text-xl font-semibold tracking-[0.18em] text-slate-950 dark:text-white">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-500 text-slate-950">G</span>
+            GustoOro
+          </a>
+          <nav class="hidden items-center gap-8 lg:flex">
+            <a href="index.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Home</a>
+            <a href="menu.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Menu</a>
+            <a href="menu2.html" class="nav-link text-sm uppercase tracking-[0.24em] text-amber-700 transition hover:text-amber-500 dark:text-amber-300">Patisserie</a>
+            <a href="reservation.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Reserve</a>
+            <a href="about.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">About</a>
+            <a href="contact.html" class="nav-link text-sm uppercase tracking-[0.24em] text-amber-500 dark:text-amber-300">Contact</a>
+          </nav>
+          <div class="flex items-center gap-3">
+            <button id="themeToggle" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-amber-500 shadow-sm transition hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:text-amber-300">
+              <span class="sr-only">Toggle dark mode</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-9H21m-18 0H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 6.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11z" />
+              </svg>
+            </button>
+            <button id="mobileMenuButton" class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white p-3 text-slate-900 shadow-sm transition hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 lg:hidden">
+              <span class="sr-only">Open menu</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white/95 px-6 py-4 dark:border-slate-800 dark:bg-slate-950/95 lg:hidden">
+          <div class="flex flex-col gap-3 text-sm uppercase tracking-[0.24em] text-slate-700 dark:text-slate-300">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="menu.html" class="nav-link">Menu</a>
+            <a href="menu2.html" class="nav-link">Patisserie</a>
+            <a href="reservation.html" class="nav-link">Reserve</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+        </div>
+      </header>
+      <main class="pt-28">
+        <section class="px-6 pb-16 lg:px-8">
+          <div class="mx-auto max-w-7xl space-y-12">
+            <div class="rounded-[2rem] border border-slate-200 bg-white/90 p-10 shadow-2xl shadow-amber-100/30 dark:border-slate-700 dark:bg-slate-950/85 dark:shadow-slate-900/40">
+              <div class="space-y-5">
+                <p class="text-sm uppercase tracking-[0.32em] text-amber-600 dark:text-amber-400">Contact</p>
+                <h1 class="text-4xl font-semibold tracking-tight text-slate-950 dark:text-slate-50">Modern, direct support for private dining experiences.</h1>
+                <p class="text-base leading-8 text-slate-600 dark:text-slate-300">Reach out for bookings, collaborations, or personalized culinary planning with our concierge team.</p>
+              </div>
+            </div>
+            <div class="grid gap-8 lg:grid-cols-[0.9fr_0.6fr]">
+              <div class="rounded-[2rem] border border-slate-200 bg-white/90 p-10 shadow-2xl shadow-amber-100/30 dark:border-slate-700 dark:bg-slate-950/85 dark:shadow-slate-900/40">
+                <div class="grid gap-8">
+                  <div>
+                    <h2 class="text-2xl font-semibold text-slate-950 dark:text-slate-50">Operating hours</h2>
+                    <div class="mt-6 grid gap-3 rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-900">
+                      <div class="flex items-center justify-between text-sm uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400"><span>Monday – Friday</span><span>6:00 PM – 11:00 PM</span></div>
+                      <div class="flex items-center justify-between text-sm uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400"><span>Saturday</span><span>5:00 PM – 12:00 AM</span></div>
+                      <div class="flex items-center justify-between text-sm uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400"><span>Sunday</span><span>5:00 PM – 10:00 PM</span></div>
+                    </div>
+                  </div>
+                  <div>
+                    <h2 class="text-2xl font-semibold text-slate-950 dark:text-slate-50">Contact details</h2>
+                    <div class="mt-6 grid gap-4 text-slate-700 dark:text-slate-200">
+                        <a href="tel:01717193544" class="group flex items-start gap-4 rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 transition hover:border-amber-500 dark:border-slate-700 dark:bg-slate-900">
+                        <span class="mt-1 inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-amber-500 text-slate-950">📞</span>
+                        <div>
+                          <p class="font-semibold text-slate-950 dark:text-slate-50">Call us</p>
+                          <p class="text-sm text-slate-500 dark:text-slate-400">+880 1717-193544</p>
+                        </div>
+                      </a>
+                        <a href="mailto:kh902691@gmail.com" class="group flex items-start gap-4 rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 transition hover:border-amber-500 dark:border-slate-700 dark:bg-slate-900">
+                        <span class="mt-1 inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-amber-500 text-slate-950">✉️</span>
+                        <div>
+                          <p class="font-semibold text-slate-950 dark:text-slate-50">Email</p>
+                          <p class="text-sm text-slate-500 dark:text-slate-400">kh902691@gmail.com</p>
+                        </div>
+                      </a> 
+                        <a href="https://www.google.com/maps/search/Sirajganj,+Rajshahi,+Bangladesh" target="_blank" class="group flex items-start gap-4 rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 transition hover:border-amber-500 dark:border-slate-700 dark:bg-slate-900">
+                        <span class="mt-1 inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-amber-500 text-slate-950">📍</span>
+                        <div>
+                          <p class="font-semibold text-slate-950 dark:text-slate-50">Location</p>
+                          <p class="text-sm text-slate-500 dark:text-slate-400">Sirajganj, Rajshahi, Bangladesh</p>
+                        </div>
+                      </a> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-2xl shadow-amber-100/20 dark:border-slate-700 dark:bg-slate-950/90 dark:shadow-slate-900/40">
+                <h2 class="text-2xl font-semibold text-slate-950 dark:text-slate-50">Find us</h2>
+                <div class="mt-6 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-900">
+                  <iframe class="h-72 w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.543195312473!2d-122.41941568468266!3d37.77492927975979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c0a3dd385%3A0xf0be3e5a8f7b300c!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1700010000000!5m2!1sen!2sus"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

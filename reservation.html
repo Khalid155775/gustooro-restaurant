@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GustoOro | Reservation Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' };
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="bg-amber-50 text-slate-950 dark:bg-slate-950 dark:text-slate-100">
+    <div class="min-h-screen">
+      <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-white/70 backdrop-blur-xl dark:bg-slate-950/85 theme-transition">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+          <a href="index.html" class="flex items-center gap-3 text-xl font-semibold tracking-[0.18em] text-slate-950 dark:text-white">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-500 text-slate-950">G</span>
+            GustoOro
+          </a>
+          <nav class="hidden items-center gap-8 lg:flex">
+            <a href="index.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Home</a>
+            <a href="menu.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Menu</a>
+            <a href="menu2.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Patisserie</a>
+            <a href="reservation.html" class="nav-link text-sm uppercase tracking-[0.24em] text-amber-500 dark:text-amber-300">Reserve</a>
+            <a href="about.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">About</a>
+            <a href="contact.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Contact</a>
+          </nav>
+          <div class="flex items-center gap-3">
+            <button id="themeToggle" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-amber-500 shadow-sm transition hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:text-amber-300">
+              <span class="sr-only">Toggle dark mode</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-9H21m-18 0H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 6.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11z" />
+              </svg>
+            </button>
+            <button id="mobileMenuButton" class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white p-3 text-slate-900 shadow-sm transition hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 lg:hidden">
+              <span class="sr-only">Open menu</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white/95 px-6 py-4 dark:border-slate-800 dark:bg-slate-950/95 lg:hidden">
+          <div class="flex flex-col gap-3 text-sm uppercase tracking-[0.24em] text-slate-700 dark:text-slate-300">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="menu.html" class="nav-link">Menu</a>
+            <a href="menu2.html" class="nav-link">Patisserie</a>
+            <a href="reservation.html" class="nav-link">Reserve</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+        </div>
+      </header>
+      <main class="pt-28">
+        <section class="px-6 pb-12 lg:px-8">
+          <div class="mx-auto max-w-5xl rounded-[2rem] border border-slate-200 bg-white/90 p-10 shadow-2xl shadow-amber-100/30 dark:border-slate-700 dark:bg-slate-950/85 dark:shadow-slate-900/40">
+            <div class="space-y-6 text-center">
+              <p class="text-sm uppercase tracking-[0.32em] text-amber-600 dark:text-amber-400">Reserve with intention</p>
+              <h1 class="text-4xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 sm:text-5xl">Choose your seating, date, and bespoke service moment.</h1>
+              <p class="mx-auto max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">Our reservations offer an immersive experience from window views to intimate VIP lounge selections.</p>
+            </div>
+            <form id="reservationForm" class="mt-12 space-y-6 rounded-[1.75rem] border border-slate-200 bg-amber-50/90 p-8 shadow-xl shadow-amber-100/20 dark:border-slate-700 dark:bg-slate-900/80">
+              <div class="grid gap-6 sm:grid-cols-2">
+                <label class="space-y-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+                  Name
+                  <input id="guestName" required type="text" placeholder="Ava Laurent" class="w-full rounded-3xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-amber-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
+                </label>
+                <label class="space-y-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+                  Guests
+                  <select id="guestCount" required class="w-full rounded-3xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-amber-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6 Guests</option>
+                  </select>
+                </label>
+              </div>
+              <div class="grid gap-6 sm:grid-cols-2">
+                <label class="space-y-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+                  Date
+                  <input id="reservationDate" required type="date" class="w-full rounded-3xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-amber-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
+                </label>
+                <label class="space-y-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+                  Time
+                  <select id="reservationTime" required class="w-full rounded-3xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-amber-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+                    <option value="18:00">6:00 PM</option>
+                    <option value="18:30">6:30 PM</option>
+                    <option value="19:00">7:00 PM</option>
+                    <option value="19:30">7:30 PM</option>
+                    <option value="20:00">8:00 PM</option>
+                  </select>
+                </label>
+              </div>
+              <div class="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+                <div class="rounded-[1.75rem] border border-slate-200 bg-white/90 p-6 dark:border-slate-700 dark:bg-slate-950/90">
+                  <p class="text-sm uppercase tracking-[0.28em] text-amber-600 dark:text-amber-400">Experience map</p>
+                  <div class="mt-6 space-y-4">
+                    <button type="button" class="seatOption block w-full rounded-3xl border border-slate-300 bg-slate-50 px-5 py-4 text-left text-slate-700 transition hover:border-amber-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" data-seat="Window View">
+                      <p class="font-semibold">Window View</p>
+                      <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Sunset panorama with amber-lit table settings.</p>
+                    </button>
+                    <button type="button" class="seatOption block w-full rounded-3xl border border-slate-300 bg-slate-50 px-5 py-4 text-left text-slate-700 transition hover:border-amber-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" data-seat="VIP Lounge">
+                      <p class="font-semibold">VIP Lounge</p>
+                      <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Intimate velvet seating with curated privacy.</p>
+                    </button>
+                    <button type="button" class="seatOption block w-full rounded-3xl border border-slate-300 bg-slate-50 px-5 py-4 text-left text-slate-700 transition hover:border-amber-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" data-seat="Couple Booth">
+                      <p class="font-semibold">Couple Booth</p>
+                      <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Private corner with elegant lighting design.</p>
+                    </button>
+                  </div>
+                </div>
+                <div class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-100/90 p-6 dark:border-slate-700 dark:bg-slate-900/90">
+                  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.12),_transparent_28%)]"></div>
+                  <div class="relative space-y-4">
+                    <h2 class="text-2xl font-semibold text-slate-950 dark:text-slate-50">Select a zone on our seating map</h2>
+                    <p class="text-sm leading-7 text-slate-700 dark:text-slate-300">Tap your preferred area to reserve a truly curated table experience.</p>
+                    <div class="grid gap-4 sm:grid-cols-2">
+                      <div class="rounded-[1.5rem] border border-slate-200 bg-white/90 p-4 text-center dark:border-slate-700 dark:bg-slate-950/90">
+                        <p class="text-sm font-semibold text-slate-950 dark:text-slate-50">Window View</p>
+                        <p class="mt-2 text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Golden hour</p>
+                      </div>
+                      <div class="rounded-[1.5rem] border border-slate-200 bg-white/90 p-4 text-center dark:border-slate-700 dark:bg-slate-950/90">
+                        <p class="text-sm font-semibold text-slate-950 dark:text-slate-50">VIP Lounge</p>
+                        <p class="mt-2 text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Exclusive</p>
+                      </div>
+                      <div class="rounded-[1.5rem] border border-slate-200 bg-white/90 p-4 text-center dark:border-slate-700 dark:bg-slate-950/90">
+                        <p class="text-sm font-semibold text-slate-950 dark:text-slate-50">Couple Booth</p>
+                        <p class="mt-2 text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Intimate</p>
+                      </div>
+                      <div class="rounded-[1.5rem] border border-slate-200 bg-white/90 p-4 text-center dark:border-slate-700 dark:bg-slate-950/90">
+                        <p class="text-sm font-semibold text-slate-950 dark:text-slate-50">Chef Counter</p>
+                        <p class="mt-2 text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Kitchen immersion</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <p id="selectedSeat" class="rounded-3xl border border-slate-300 bg-white/90 px-5 py-4 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-950/90 dark:text-slate-100">Selected zone: <span class="font-semibold">None</span></p>
+                <button type="button" id="openSeatModal" class="rounded-3xl bg-amber-500 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-950 transition hover:bg-amber-400">Choose seating map</button>
+              </div>
+              <button type="submit" class="rounded-3xl bg-slate-950 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-slate-800">Confirm reservation</button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <div id="seatModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 px-4 py-12 backdrop-blur-sm">
+        <div class="mx-auto max-w-3xl rounded-[2rem] bg-white p-8 shadow-2xl shadow-slate-900/20 dark:bg-slate-950 dark:shadow-slate-900/60">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <p class="text-sm uppercase tracking-[0.28em] text-amber-600">Seating selection</p>
+              <h2 class="mt-2 text-3xl font-semibold text-slate-950 dark:text-slate-50">Tap your preferred dining zone</h2>
+            </div>
+            <button id="closeSeatModal" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 text-slate-900 transition hover:border-amber-400 dark:border-slate-700 dark:text-slate-100">
+              <span class="sr-only">Close seating modal</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="mt-8 grid gap-6 sm:grid-cols-3">
+            <button type="button" class="seatOption block rounded-[1.75rem] border border-slate-200 bg-slate-50 px-5 py-6 text-left text-slate-900 transition hover:border-amber-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" data-seat="Window View">
+              <p class="text-lg font-semibold">Window View</p>
+              <p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">Sea of light and skyline ambiance.</p>
+            </button>
+            <button type="button" class="seatOption block rounded-[1.75rem] border border-slate-200 bg-slate-50 px-5 py-6 text-left text-slate-900 transition hover:border-amber-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" data-seat="VIP Lounge">
+              <p class="text-lg font-semibold">VIP Lounge</p>
+              <p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">Discreet comfort and private service.</p>
+            </button>
+            <button type="button" class="seatOption block rounded-[1.75rem] border border-slate-200 bg-slate-50 px-5 py-6 text-left text-slate-900 transition hover:border-amber-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" data-seat="Couple Booth">
+              <p class="text-lg font-semibold">Couple Booth</p>
+              <p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">Intimate curated space for two.</p>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="reservationBanner" class="pointer-events-none fixed bottom-6 right-6 hidden rounded-3xl border border-amber-300/30 bg-amber-50/95 px-6 py-4 shadow-2xl shadow-amber-200/30 dark:border-amber-400/30 dark:bg-slate-900/95">
+        <p class="text-sm font-semibold text-slate-950 dark:text-slate-100">Reservation confirmed! Your chosen table is being prepared.</p>
+      </div>
+    </div>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
