@@ -70,30 +70,55 @@
       </div>
     </div>
 
-    <div class="relative rounded-[2rem] border border-amber-100/70 bg-white/70 p-8 shadow-2xl shadow-amber-200/20 backdrop-blur-xl dark:border-slate-700/70 dark:bg-slate-950/80 dark:shadow-slate-900/50">
-      <div class="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.16),_transparent_24%)]"></div>
-      <div class="relative space-y-6">
-        <p class="text-sm uppercase tracking-[0.3em] text-amber-600 dark:text-amber-400">Champagne dusk tasting</p>
-        <h2 class="text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-100">Private tables, bespoke mise en place.</h2>
-        <p class="text-sm leading-7 text-slate-600 dark:text-slate-300">
-          From sommelier-led pours to amber-lit chef counters, every detail is choreographed for guests who value comfort, craft, and curated brightness.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-          <div class="rounded-3xl border border-slate-200 bg-slate-50/80 p-5 dark:border-slate-700 dark:bg-white/5 overflow-hidden">
-            <img src="assets/images/event-1.jpg" alt="Private Chef" class="w-full h-56 sm:h-64 object-cover object-center rounded-xl shadow-md">
-            <p class="mt-4 text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Private Chef</p>
-            <p class="mt-2 text-2xl font-semibold text-slate-950 dark:text-slate-50">6-course menu</p>
-          </div>
-          <div class="rounded-3xl border border-slate-200 bg-slate-50/80 p-5 dark:border-slate-700 dark:bg-white/5 overflow-hidden">
-            <img src="assets/images/event-2.jpg" alt="Sommelier Wines" class="w-full h-56 sm:h-64 object-cover object-center rounded-xl shadow-md">
-            <p class="mt-4 text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Sommelier</p>
-            <p class="mt-2 text-2xl font-semibold text-slate-950 dark:text-slate-50">Curated wines</p>
-          </div>
-        </div>
+   <div class="relative rounded-[2rem] border border-amber-100/70 bg-white/70 p-8 shadow-2xl shadow-amber-200/20 backdrop-blur-xl dark:border-slate-700/70 dark:bg-slate-950/80 dark:shadow-slate-900/50">
+  <div class="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.16),_transparent_24%)]"></div>
+  <div class="relative space-y-6">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-sm uppercase tracking-[0.3em] text-amber-600 dark:text-amber-400">Champagne dusk tasting</p>
+      <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-100">Private tables, bespoke mise en place.</h2>
+      <p class="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:whitespace-nowrap">
+        <span class="typewriter champagne-typewriter text-amber-300"></span>
+        <span class="inline sm:whitespace-nowrap">&amp;</span>
+        <span class="block sm:inline"> rosé indulgence.</span>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+      <div class="rounded-3xl border border-slate-200 bg-slate-50/80 p-5 dark:border-slate-700 dark:bg-white/5 overflow-hidden">
+        <img src="assets/images/event-1.jpg" alt="Private Chef" class="w-full h-56 sm:h-64 object-cover object-center rounded-xl shadow-md">
+        <p class="mt-4 text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Private Chef</p>
+        <p class="mt-2 text-2xl font-semibold text-slate-950 dark:text-slate-50">6-course menu</p>
+      </div>
+      <div class="rounded-3xl border border-slate-200 bg-slate-50/80 p-5 dark:border-slate-700 dark:bg-white/5 overflow-hidden">
+        <img src="assets/images/event-2.jpg" alt="Sommelier Wines" class="w-full h-56 sm:h-64 object-cover object-center rounded-xl shadow-md">
+        <p class="mt-4 text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Sommelier</p>
+        <p class="mt-2 text-2xl font-semibold text-slate-950 dark:text-slate-50">Curated wines</p>
       </div>
     </div>
   </div>
-</section> 
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var target = document.querySelector('.champagne-typewriter');
+      if (!target) return;
+      var text = 'Champagne, caviar';
+      var index = 0;
+      var cursor = document.createElement('span');
+      cursor.textContent = '|';
+      cursor.className = 'ml-1 inline animate-pulse text-amber-300';
+      target.parentNode.insertBefore(cursor, target.nextSibling);
+
+      var typing = setInterval(function () {
+        target.textContent = text.slice(0, index + 1);
+        index += 1;
+        if (index === text.length) {
+          clearInterval(typing);
+          cursor.remove();
+        }
+      }, 80);
+    });
+  </script>
+</div>
 
         <section id="specials" class="px-6 pb-20 lg:px-8">
           <div class="mx-auto max-w-7xl">
