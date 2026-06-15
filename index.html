@@ -10,7 +10,8 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body class="overflow-x-hidden w-full max-w-full relative m-0 p-0"></body>
+
+  <body class="overflow-x-hidden w-full max-w-full relative m-0 p-0">
     <div class="min-h-screen">
       <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-white/70 backdrop-blur-xl dark:bg-slate-950/85 theme-transition">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
@@ -18,6 +19,7 @@
             <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-500 text-slate-950">G</span>
             GustoOro
           </a>
+
           <nav class="hidden items-center gap-8 lg:flex">
             <a href="index.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Home</a>
             <a href="menu.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Menu</a>
@@ -26,6 +28,7 @@
             <a href="about.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">About</a>
             <a href="contact.html" class="nav-link text-sm uppercase tracking-[0.24em] text-slate-700 transition hover:text-amber-500 dark:text-slate-300">Contact</a>
           </nav>
+
           <div class="flex items-center gap-3">
             <button id="themeToggle" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-amber-500 shadow-sm transition hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:text-amber-300">
               <span class="sr-only">Toggle dark mode</span>
@@ -33,6 +36,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-9H21m-18 0H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 6.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11z" />
               </svg>
             </button>
+
             <button id="mobileMenuButton" class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white p-3 text-slate-900 shadow-sm transition hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 lg:hidden">
               <span class="sr-only">Open menu</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -41,6 +45,7 @@
             </button>
           </div>
         </div>
+
         <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white/95 px-6 py-4 dark:border-slate-800 dark:bg-slate-950/95 lg:hidden">
           <div class="flex flex-col gap-3 text-sm uppercase tracking-[0.24em] text-slate-700 dark:text-slate-300">
             <a href="index.html" class="nav-link">Home</a>
@@ -52,26 +57,52 @@
           </div>
         </div>
       </header>
+
       <main class="relative pt-28">
-       <section class="py-16 bg-white dark:bg-slate-950 overflow-hidden w-full">
-  <div class="w-full text-center px-4 mb-8">
-    <span class="text-xl sm:text-3xl font-bold text-gray-900 dark:text-white break-words">[Your Typing Text Logic Here]</span>
-  </div>
+        <section class="relative overflow-hidden px-6 pb-24 pt-20 lg:px-8" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/images/hero-bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+          <div class="absolute inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_top,_rgba(245,158,11,0.18),_transparent_45%)]"></div>
 
- <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 max-w-6xl mx-auto w-full">
-    <div class="rounded-3xl border border-slate-200 bg-slate-50/80 p-5 dark:border-slate-700 dark:bg-white/5 overflow-hidden">
-      <img src="assets/images/event-1.jpg" alt="Private Chef" class="w-full h-56 sm:h-64 object-cover rounded-xl shadow-md">
-      <p class="mt-4 text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Private Chef</p>
-      <p class="mt-2 text-2xl font-semibold text-slate-950 dark:text-slate-50">6-course menu</p>
-    </div>
+          <div class="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+            <div class="space-y-10">
+              <div class="max-w-xl space-y-5">
+                <p class="text-sm uppercase tracking-[0.32em] text-amber-600 dark:text-amber-400">Michelin-inspired culinary couture</p>
+                <h1 class="text-5xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 sm:text-6xl">
+                  A small plate of
+                  <span class="typewriter block text-amber-600 dark:text-amber-300"></span>
+                </h1>
+                <p class="max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">
+                  GustoOro invites you into a refined sensory journey where amber elegance meets midnight vigour, crafted for connoisseurs seeking a luminous dining ritual.
+                </p>
+              </div>
+            </div>
 
-    <div class="rounded-3xl border border-slate-200 bg-slate-50/80 p-5 dark:border-slate-700 dark:bg-white/5 overflow-hidden">
-      <img src="assets/images/event-2.jpg" alt="Sommelier Wines" class="w-full h-56 sm:h-64 object-cover rounded-xl shadow-md">
-      <p class="mt-4 text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Sommelier</p>
-      <p class="mt-2 text-2xl font-semibold text-slate-950 dark:text-slate-50">Curated wines</p>
-    </div>
-  </div>
-</section>   
+            <div class="relative rounded-[2rem] border border-amber-100/70 bg-white/70 p-8 shadow-2xl shadow-amber-200/20 backdrop-blur-xl dark:border-slate-700/70 dark:bg-slate-950/80 dark:shadow-slate-900/50">
+              <div class="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.16),_transparent_24%)]"></div>
+              <div class="relative space-y-6">
+                <p class="text-sm uppercase tracking-[0.3em] text-amber-600 dark:text-amber-400">Champagne dusk tasting</p>
+                <h2 class="text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-100">Private tables, bespoke mise en place.</h2>
+                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300">
+                  From sommelier-led pours to amber-lit chef counters, every detail is choreographed for guests who value comfort, craft, and curated brightness.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                  <div class="rounded-3xl border border-slate-200 bg-slate-50/80 p-5 dark:border-slate-700 dark:bg-white/5 overflow-hidden">
+                    <img src="assets/images/event-1.jpg" alt="Private Chef" class="w-full h-56 sm:h-64 object-cover object-center rounded-xl shadow-md">
+                    <p class="mt-4 text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Private Chef</p>
+                    <p class="mt-2 text-2xl font-semibold text-slate-950 dark:text-slate-50">6-course menu</p>
+                  </div>
+
+                  <div class="rounded-3xl border border-slate-200 bg-slate-50/80 p-5 dark:border-slate-700 dark:bg-white/5 overflow-hidden">
+                    <img src="assets/images/event-2.jpg" alt="Sommelier Wines" class="w-full h-56 sm:h-64 object-cover object-center rounded-xl shadow-md">
+                    <p class="mt-4 text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Sommelier</p>
+                    <p class="mt-2 text-2xl font-semibold text-slate-950 dark:text-slate-50">Curated wines</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="specials" class="px-6 pb-20 lg:px-8">
           <div class="mx-auto max-w-7xl">
             <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
@@ -79,10 +110,13 @@
                 <p class="text-sm uppercase tracking-[0.28em] text-amber-600 dark:text-amber-400">Today’s Chef Specials</p>
                 <h2 class="mt-3 text-4xl font-semibold tracking-tight text-slate-950 dark:text-slate-50">Highlights from the open flame kitchen</h2>
               </div>
-              <p class="max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-300">Each dish reflects GustoOro’s amber aesthetic with a balance of texture, spice, and gold-hinted presentation.</p>
+              <p class="max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-300">
+                Each dish reflects GustoOro’s amber aesthetic with a balance of texture, spice, and gold-hinted presentation.
+              </p>
             </div>
+
             <div class="grid gap-6 lg:grid-cols-3">
-                           <article class="menu-card card-surface animate-fade-in rounded-[2rem] border border-slate-200/60 bg-white/95 p-8 shadow-xl shadow-amber-100/40 dark:border-slate-700/70 dark:bg-slate-950/85 dark:shadow-slate-900/40">
+              <article class="menu-card card-surface animate-fade-in rounded-[2rem] border border-slate-200/60 bg-white/95 p-8 shadow-xl shadow-amber-100/40 dark:border-slate-700/70 dark:bg-slate-950/85 dark:shadow-slate-900/40">
                 <img src="assets/images/kitchen-1.jpg" alt="Caviar Millefeuille" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-md hover:scale-105 transition duration-300 mb-6" />
                 <div class="mb-6 flex items-center justify-between gap-4">
                   <div>
@@ -91,13 +125,16 @@
                   </div>
                   <span class="rounded-2xl bg-amber-50 px-3 py-1 text-sm font-semibold text-amber-700 dark:bg-amber-500/10 dark:text-amber-300">Luxury</span>
                 </div>
-                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300">Layers of silky potato, crème fraîche, and ruby sturgeon pearls finished with edible gold.</p>
+                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300">
+                  Layers of silky potato, crème fraîche, and ruby sturgeon pearls finished with edible gold.
+                </p>
                 <div class="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
                   <span class="rounded-full border border-slate-200 px-3 py-2 dark:border-slate-700">Gluten-free</span>
                   <span class="rounded-full border border-slate-200 px-3 py-2 dark:border-slate-700">Chef's choice</span>
                 </div>
               </article>
-               <article class="menu-card card-surface animate-fade-in rounded-[2rem] border border-slate-200/60 bg-white/95 p-8 shadow-xl shadow-amber-100/40 dark:border-slate-700/70 dark:bg-slate-950/85 dark:shadow-slate-900/40">
+
+              <article class="menu-card card-surface animate-fade-in rounded-[2rem] border border-slate-200/60 bg-white/95 p-8 shadow-xl shadow-amber-100/40 dark:border-slate-700/70 dark:bg-slate-950/85 dark:shadow-slate-900/40">
                 <img src="assets/images/kitchen-2.jpg" alt="Golden Lobster Risotto" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-md hover:scale-105 transition duration-300 mb-6" />
                 <div class="mb-6 flex items-center justify-between gap-4">
                   <div>
@@ -106,13 +143,16 @@
                   </div>
                   <span class="rounded-2xl bg-amber-50 px-3 py-1 text-sm font-semibold text-amber-700 dark:bg-amber-500/10 dark:text-amber-300">Signature</span>
                 </div>
-                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300">Creamy saffron risotto studded with butter-poached lobster and shavings of aged parmesan.</p>
+                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300">
+                  Creamy saffron risotto studded with butter-poached lobster and shavings of aged parmesan.
+                </p>
                 <div class="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
                   <span class="rounded-full border border-slate-200 px-3 py-2 dark:border-slate-700">Shellfish</span>
                   <span class="rounded-full border border-slate-200 px-3 py-2 dark:border-slate-700">Rich</span>
                 </div>
               </article>
-                           <article class="menu-card card-surface animate-fade-in rounded-[2rem] border border-slate-200/60 bg-white/95 p-8 shadow-xl shadow-amber-100/40 dark:border-slate-700/70 dark:bg-slate-950/85 dark:shadow-slate-900/40">
+
+              <article class="menu-card card-surface animate-fade-in rounded-[2rem] border border-slate-200/60 bg-white/95 p-8 shadow-xl shadow-amber-100/40 dark:border-slate-700/70 dark:bg-slate-950/85 dark:shadow-slate-900/40">
                 <img src="assets/images/kitchen-3.jpg" alt="Saffron Poached Pear" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-md hover:scale-105 transition duration-300 mb-6" />
                 <div class="mb-6 flex items-center justify-between gap-4">
                   <div>
@@ -121,7 +161,9 @@
                   </div>
                   <span class="rounded-2xl bg-amber-50 px-3 py-1 text-sm font-semibold text-amber-700 dark:bg-amber-500/10 dark:text-amber-300">Refined</span>
                 </div>
-                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300">Tender pear in honeyed saffron reduction, mascarpone silk, and spun caramel shards.</p>
+                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300">
+                  Tender pear in honeyed saffron reduction, mascarpone silk, and spun caramel shards.
+                </p>
                 <div class="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
                   <span class="rounded-full border border-slate-200 px-3 py-2 dark:border-slate-700">Vegetarian</span>
                   <span class="rounded-full border border-slate-200 px-3 py-2 dark:border-slate-700">Artisan</span>
@@ -130,12 +172,14 @@
             </div>
           </div>
         </section>
+
         <section class="bg-white/90 py-20 dark:bg-slate-900/90">
           <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mb-10 text-center">
               <p class="text-sm uppercase tracking-[0.32em] text-amber-600 dark:text-amber-400">Guest reflections</p>
               <h2 class="mt-3 text-4xl font-semibold tracking-tight text-slate-950 dark:text-slate-50">A memorably luminous atmosphere</h2>
             </div>
+
             <div class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50/80 p-8 shadow-2xl shadow-amber-100/20 dark:border-slate-700 dark:bg-slate-950/80 dark:shadow-slate-900/30">
               <div class="absolute inset-y-0 left-0 w-1 bg-amber-400/80"></div>
               <div id="testimonialSlides" class="relative grid gap-8">
@@ -149,6 +193,7 @@
                     </div>
                   </div>
                 </article>
+
                 <article class="testimonial-slide hidden grid gap-6 opacity-0 transition-opacity duration-700">
                   <p class="text-lg leading-8 text-slate-700 dark:text-slate-300">"The wine pairings were luminous, and the staff curated our entire evening with discreet, golden service."</p>
                   <div class="flex items-center gap-4">
@@ -159,6 +204,7 @@
                     </div>
                   </div>
                 </article>
+
                 <article class="testimonial-slide hidden grid gap-6 opacity-0 transition-opacity duration-700">
                   <p class="text-lg leading-8 text-slate-700 dark:text-slate-300">"Every bite shimmered with layered flavor. It felt modern, polished, and effortlessly luxurious."</p>
                   <div class="flex items-center gap-4">
@@ -170,6 +216,7 @@
                   </div>
                 </article>
               </div>
+
               <div class="mt-10 flex items-center justify-center gap-4">
                 <button class="testimonial-dot h-3 w-3 rounded-full bg-slate-300 transition hover:bg-amber-500" data-index="0" aria-label="Slide 1"></button>
                 <button class="testimonial-dot h-3 w-3 rounded-full bg-slate-300 transition hover:bg-amber-500" data-index="1" aria-label="Slide 2"></button>
@@ -180,6 +227,46 @@
         </section>
       </main>
     </div>
+
     <script src="assets/js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const typewriter = document.querySelector('.typewriter');
+        if (!typewriter) return;
+
+        const phrases = [
+          'Gilded Flavors & Private Labels',
+          'Private Tables & Champagne Pairings',
+          'Amber Glow Dining Experiences'
+        ];
+        let currentPhrase = 0;
+        let currentChar = 0;
+        let isDeleting = false;
+        const typingSpeed = 90;
+        const deletingSpeed = 45;
+        const pauseDelay = 1800;
+
+        function updateText() {
+          const phrase = phrases[currentPhrase];
+          currentChar = isDeleting ? currentChar - 1 : currentChar + 1;
+          typewriter.textContent = phrase.slice(0, currentChar);
+
+          if (!isDeleting && currentChar === phrase.length) {
+            isDeleting = true;
+            setTimeout(updateText, pauseDelay);
+            return;
+          }
+
+          if (isDeleting && currentChar === 0) {
+            isDeleting = false;
+            currentPhrase = (currentPhrase + 1) % phrases.length;
+          }
+
+          setTimeout(updateText, isDeleting ? deletingSpeed : typingSpeed);
+        }
+
+        updateText();
+      });
+    </script>
   </body>
 </html>
