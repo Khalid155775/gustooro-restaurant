@@ -18,6 +18,7 @@ const cartDrawer = document.getElementById('cartDrawer');
 const cartBackdrop = document.getElementById('cartBackdrop');
 const closeCart = document.getElementById('closeCart');
 const checkoutButton = document.getElementById('checkoutButton');
+const onlinePaymentButton = document.getElementById('onlinePaymentButton');
 const cartItemsContainer = document.getElementById('cartItems');
 const cartSubtotal = document.getElementById('cartSubtotal');
 const cartTax = document.getElementById('cartTax');
@@ -25,7 +26,12 @@ const cartTotal = document.getElementById('cartTotal');
 const cartButton = document.getElementById('openCartButton');
 const storedTheme = localStorage.getItem('gustooro-theme');
 const storedCart = JSON.parse(localStorage.getItem('gustooro-cart') || '{}');
-const WA_PHONE = '8801717193544';
+const WEBSITE_CONFIG = {
+  whatsappNumber: '8801717193544',
+  merchantPayPalEmail: 'PLACEHOLDER_EMAIL',
+  isPaymentActive: false
+};
+const WA_PHONE = WEBSITE_CONFIG.whatsappNumber;
 const salesTaxRate = 0.08;
 let cart = storedCart || {};
 let testimonialIndex = 0;
@@ -227,7 +233,29 @@ function handleCheckout() {
   const tax = subtotal * salesTaxRate;
   const total = subtotal + tax;
   const message = `Hello GustoOro, I would like to place an order:%0A${encodeURIComponent(lines.join('%0A'))}%0A%0ASubtotal: ${encodeURIComponent(formatCurrency(subtotal))}%0ATax: ${encodeURIComponent(formatCurrency(tax))}%0ATotal: ${encodeURIComponent(formatCurrency(total))}`;
-  window.open(`https://wa.me/${WA_PHONE}?text=${message}`, '_blank');
+  window.open(`https://wa.me/${WEBSITE_CONFIG.whatsappNumber}?text=${message}`, '_blank');
+}
+function handleOnlinePayment() {
+  const items = Object.values(cart);
+  if (!items.length) return;
+  if (!WEBSITE_CONFIG.isPaymentActive) {
+    alert('Online payment setup is in progress. Please use Checkout with WhatsApp for now.');
+    return;
+  }
+
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const tax = subtotal * salesTaxRate;
+  const total = subtotal + tax;
+  const paypalEmail = WEBSITE_CONFIG.merchantPayPalEmail;
+  const paypalParams = new URLSearchParams({
+    cmd: '_xclick',
+    business: paypalEmail,
+    item_name: 'GustoOro Order',
+    amount: total.toFixed(2),
+    currency_code: 'USD',
+    tax: tax.toFixed(2)
+  });
+  window.open(`https://www.paypal.com/cgi-bin/webscr?${paypalParams.toString()}`, '_blank');
 }
 function initializeCartButtons() {
   const categoryButtons = document.querySelectorAll('.category-button');
@@ -237,6 +265,7 @@ function initializeCartButtons() {
   closeCart?.addEventListener('click', closeCartDrawer);
   cartBackdrop?.addEventListener('click', closeCartDrawer);
   checkoutButton?.addEventListener('click', handleCheckout);
+  onlinePaymentButton?.addEventListener('click', handleOnlinePayment);
 }
 function initializeReservation() {
   if (!bookingForm) return;
