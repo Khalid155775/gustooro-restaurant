@@ -17,8 +17,6 @@ const bookingDateTimeInput = document.getElementById('bookingDateTime');
 const cartDrawer = document.getElementById('cartDrawer');
 const cartBackdrop = document.getElementById('cartBackdrop');
 const closeCart = document.getElementById('closeCart');
-const checkoutButton = document.getElementById('checkoutButton');
-const onlinePaymentButton = document.getElementById('onlinePaymentButton');
 const cartItemsContainer = document.getElementById('cartItems');
 const cartSubtotal = document.getElementById('cartSubtotal');
 const cartTax = document.getElementById('cartTax');
@@ -26,6 +24,7 @@ const cartTotal = document.getElementById('cartTotal');
 // Order modal elements (may be null on pages without the modal)
 const orderNowButton = document.getElementById('orderNowButton');
 const orderModal = document.getElementById('orderModal');
+const orderModalBackdrop = document.getElementById('orderModalBackdrop');
 const orderModalClose = document.getElementById('orderModalClose');
 const proceedToPayment = document.getElementById('proceedToPayment');
 const backToDetails = document.getElementById('backToDetails');
@@ -47,8 +46,8 @@ const WEBSITE_CONFIG = {
   isPaymentActive: false
 };
 const WA_PHONE = WEBSITE_CONFIG.whatsappNumber;
-// PAYMENT_GATEWAY_CONFIG: Insert international bank / Stripe / PayPal credentials here.
-// Future buyer: put your credentials inside the commented fields below to enable Online Payment.
+// assets/js/main.js line 53: PAYMENT_GATEWAY_CONFIG block for future payment provider integration.
+// Insert Stripe / PayPal / bank credentials here to replace the simulated online flow.
 const PAYMENT_GATEWAY_CONFIG = {
   // bankAccount: {
   //   IBAN: 'YOUR_IBAN',
@@ -289,7 +288,10 @@ function handleOnlinePayment() {
   });
   window.open(`https://www.paypal.com/cgi-bin/webscr?${paypalParams.toString()}`, '_blank');
 }
-// --- New Order Modal Flow ---
+// assets/js/main.js lines 293-368: New Order Modal Flow and conditional submit handlers.
+// This block includes the paymentStatus logic for Hand Cash and Online Payment.
+// Paste exactly into assets/js/main.js between existing helper functions and initialization.
+// Future buyer can extend simulateOnlinePayment() with real Stripe/PayPal SDK calls here.
 function openOrderModal() {
   if (!Object.values(cart).length) return;
   orderModal?.classList.remove('hidden');
@@ -311,7 +313,15 @@ function showDetailsStep() {
   document.getElementById('orderStep2')?.classList.add('hidden');
   document.getElementById('orderStep1')?.classList.remove('hidden');
 }
-function buildOrderMessage(paymentMethod) {
+function simulateOnlinePayment() {
+  return new Promise(resolve => {
+    // Placeholder payment flow for future Stripe/PayPal integration.
+    // Replace this with the real SDK checkout flow when ready.
+    const success = window.confirm('Simulate online payment success? Click OK to confirm payment.');
+    resolve(success);
+  });
+}
+function buildOrderMessage(paymentMethod, paymentStatus) {
   const items = Object.values(cart);
   const itemLines = items.map(i => `${i.title} x ${i.quantity}`).join('%0A');
   const subtotal = items.reduce((s, it) => s + it.price * it.quantity, 0);
@@ -320,23 +330,33 @@ function buildOrderMessage(paymentMethod) {
   const wapp = custWhatsApp?.value.trim() || 'N/A';
   const address = `${custAddress?.value.trim() || 'N/A'}, ${custCity?.value.trim() || 'N/A'}, ${custCountry?.value.trim() || 'N/A'}`;
   const lines = [];
-  lines.push('New Restaurant Order Created!');
-  lines.push('Customer Details:');
-  lines.push(`Phone: ${phone}`);
-  lines.push(`WhatsApp: ${wapp}`);
-  lines.push(`Address: ${address}`);
-  lines.push('Ordered Items:');
+  lines.push('*New Restaurant Order Confirmed!*');
+  lines.push('*Customer Details:*');
+  lines.push(`*Phone:* ${phone}`);
+  lines.push(`*WhatsApp:* ${wapp}`);
+  lines.push(`*Address:* ${address}`);
+  lines.push('*Ordered Items:*');
   lines.push(itemLines || 'None');
-  lines.push('Payment Details:');
-  lines.push(`Method: ${paymentMethod}`);
-  lines.push(`Subtotal: ${formatCurrency(subtotal)}`);
-  lines.push(`VAT: ${formatCurrency(tax)}`);
-  lines.push(`Total Bill: ${formatCurrency(subtotal + tax)}`);
+  lines.push('*Order Checklist & Billing:*');
+  lines.push(`*Payment Method:* ${paymentMethod}`);
+  lines.push(`*Payment Status:* ${paymentStatus}`);
+  lines.push(`*Subtotal:* ${formatCurrency(subtotal)}`);
+  lines.push(`*VAT:* ${formatCurrency(tax)}`);
+  lines.push(`*Total Bill:* ${formatCurrency(subtotal + tax)}`);
   return encodeURIComponent(lines.join('%0A'));
 }
-function finalizeOrder() {
-  const method = paymentOptionOnline?.checked ? 'Online Payment' : 'Cash on Delivery';
-  const msg = buildOrderMessage(method);
+async function finalizeOrder() {
+  const paymentMethod = paymentOptionOnline?.checked ? 'Online Payment' : 'Hand Cash';
+  let paymentStatus = 'Cash on Delivery';
+  if (paymentMethod === 'Online Payment') {
+    const paymentSuccess = await simulateOnlinePayment();
+    if (!paymentSuccess) {
+      alert('Online payment was not completed. Please try again or choose Hand Cash.');
+      return;
+    }
+    paymentStatus = 'Paid';
+  }
+  const msg = buildOrderMessage(paymentMethod, paymentStatus);
   window.open(`https://wa.me/${WEBSITE_CONFIG.whatsappNumber}?text=${msg}`, '_blank');
   closeOrderModal();
 }
@@ -351,8 +371,8 @@ function initializeCartButtons() {
   // Replace previous separate checkout buttons with unified Order Now flow
   orderNowButton?.addEventListener('click', openOrderModal);
   orderModalClose?.addEventListener('click', closeOrderModal);
-  // close when clicking backdrop
-  orderModal?.addEventListener('click', event => { if (event.target === document.getElementById('orderModal')) closeOrderModal(); });
+  // close when clicking outside the modal content
+  orderModalBackdrop?.addEventListener('click', closeOrderModal);
   proceedToPayment?.addEventListener('click', showPaymentStep);
   backToDetails?.addEventListener('click', showDetailsStep);
   confirmOrder?.addEventListener('click', finalizeOrder);
