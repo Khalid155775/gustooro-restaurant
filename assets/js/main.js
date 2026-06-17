@@ -10,7 +10,10 @@ const openSeatModal = document.getElementById('openSeatModal');
 const closeSeatModal = document.getElementById('closeSeatModal');
 const seatModal = document.getElementById('seatModal');
 const reservationBanner = document.getElementById('reservationBanner');
-const reservationForm = document.getElementById('reservationForm');
+const bookingForm = document.getElementById('bookingForm');
+const customerNameInput = document.getElementById('customerName');
+const customerPhoneInput = document.getElementById('customerPhone');
+const bookingDateTimeInput = document.getElementById('bookingDateTime');
 const cartDrawer = document.getElementById('cartDrawer');
 const cartBackdrop = document.getElementById('cartBackdrop');
 const closeCart = document.getElementById('closeCart');
@@ -236,22 +239,32 @@ function initializeCartButtons() {
   checkoutButton?.addEventListener('click', handleCheckout);
 }
 function initializeReservation() {
-  if (!reservationForm) return;
+  if (!bookingForm) return;
   openSeatModal?.addEventListener('click', openSeatSelection);
   closeSeatModal?.addEventListener('click', closeSeatSelection);
   seatButtons.forEach(button => button.addEventListener('click', () => {
     selectedSeatLabel.innerHTML = `Selected zone: <span class="font-semibold">${button.dataset.seat}</span>`;
-    reservationForm.dataset.seating = button.dataset.seat;
+    bookingForm.dataset.seating = button.dataset.seat;
     seatButtons.forEach(btn => btn.classList.remove('border-amber-500', 'bg-amber-500/10'));
     button.classList.add('border-amber-500', 'bg-amber-500/10');
     closeSeatSelection();
   }));
-  reservationForm.addEventListener('submit', event => {
+  bookingForm.addEventListener('submit', event => {
     event.preventDefault();
+
+    const name = customerNameInput?.value.trim() || 'N/A';
+    const phone = customerPhoneInput?.value.trim() || 'N/A';
+    const bookingDateTime = bookingDateTimeInput?.value.trim() || 'N/A';
+    const seatingPreference = bookingForm.dataset.seating || 'None';
+
+    const message = `Hello GustoOro,\nI would like to book a table.\nName: ${name}\nPhone: ${phone}\nDate & Time: ${bookingDateTime}\nSeating preference: ${seatingPreference}`;
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${WA_PHONE}?text=${encodedMessage}`, '_blank');
+
     flashReservationSuccess();
-    reservationForm.reset();
+    bookingForm.reset();
     selectedSeatLabel.innerHTML = 'Selected zone: <span class="font-semibold">None</span>';
-    reservationForm.dataset.seating = '';
+    bookingForm.dataset.seating = '';
   });
 }
 function initializeNavigation() {
