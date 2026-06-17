@@ -23,6 +23,21 @@ const cartItemsContainer = document.getElementById('cartItems');
 const cartSubtotal = document.getElementById('cartSubtotal');
 const cartTax = document.getElementById('cartTax');
 const cartTotal = document.getElementById('cartTotal');
+// Order modal elements (may be null on pages without the modal)
+const orderNowButton = document.getElementById('orderNowButton');
+const orderModal = document.getElementById('orderModal');
+const orderModalClose = document.getElementById('orderModalClose');
+const proceedToPayment = document.getElementById('proceedToPayment');
+const backToDetails = document.getElementById('backToDetails');
+const confirmOrder = document.getElementById('confirmOrder');
+
+const custPhone = document.getElementById('custPhone');
+const custWhatsApp = document.getElementById('custWhatsApp');
+const custAddress = document.getElementById('custAddress');
+const custCity = document.getElementById('custCity');
+const custCountry = document.getElementById('custCountry');
+const paymentOptionCOD = document.getElementById('paymentOptionCOD');
+const paymentOptionOnline = document.getElementById('paymentOptionOnline');
 const cartButton = document.getElementById('openCartButton');
 const storedTheme = localStorage.getItem('gustooro-theme');
 const storedCart = JSON.parse(localStorage.getItem('gustooro-cart') || '{}');
@@ -32,6 +47,23 @@ const WEBSITE_CONFIG = {
   isPaymentActive: false
 };
 const WA_PHONE = WEBSITE_CONFIG.whatsappNumber;
+// PAYMENT_GATEWAY_CONFIG: Insert international bank / Stripe / PayPal credentials here.
+// Future buyer: put your credentials inside the commented fields below to enable Online Payment.
+const PAYMENT_GATEWAY_CONFIG = {
+  // bankAccount: {
+  //   IBAN: 'YOUR_IBAN',
+  //   SWIFT_BIC: 'YOUR_SWIFT',
+  //   accountName: 'YOUR_ACCOUNT_NAME'
+  // },
+  // stripe: {
+  //   publishableKey: 'pk_live_xxx',
+  //   secretKey: 'sk_live_xxx'
+  // },
+  // paypal: {
+  //   clientId: 'YOUR_PAYPAL_CLIENT_ID',
+  //   secret: 'YOUR_PAYPAL_SECRET'
+  // }
+};
 const salesTaxRate = 0.08;
 let cart = storedCart || {};
 let testimonialIndex = 0;
@@ -257,6 +289,58 @@ function handleOnlinePayment() {
   });
   window.open(`https://www.paypal.com/cgi-bin/webscr?${paypalParams.toString()}`, '_blank');
 }
+// --- New Order Modal Flow ---
+function openOrderModal() {
+  if (!Object.values(cart).length) return;
+  orderModal?.classList.remove('hidden');
+  document.getElementById('orderStep1')?.classList.remove('hidden');
+  document.getElementById('orderStep2')?.classList.add('hidden');
+}
+function closeOrderModal() {
+  orderModal?.classList.add('hidden');
+}
+function showPaymentStep() {
+  if (!custPhone?.value.trim() || !custAddress?.value.trim()) {
+    alert('Please enter at least a phone number and address.');
+    return;
+  }
+  document.getElementById('orderStep1')?.classList.add('hidden');
+  document.getElementById('orderStep2')?.classList.remove('hidden');
+}
+function showDetailsStep() {
+  document.getElementById('orderStep2')?.classList.add('hidden');
+  document.getElementById('orderStep1')?.classList.remove('hidden');
+}
+function buildOrderMessage(paymentMethod) {
+  const items = Object.values(cart);
+  const itemLines = items.map(i => `${i.title} x ${i.quantity}`).join('%0A');
+  const subtotal = items.reduce((s, it) => s + it.price * it.quantity, 0);
+  const tax = subtotal * salesTaxRate;
+  const phone = custPhone?.value.trim() || 'N/A';
+  const wapp = custWhatsApp?.value.trim() || 'N/A';
+  const address = `${custAddress?.value.trim() || 'N/A'}, ${custCity?.value.trim() || 'N/A'}, ${custCountry?.value.trim() || 'N/A'}`;
+  const lines = [];
+  lines.push('New Restaurant Order Created!');
+  lines.push('Customer Details:');
+  lines.push(`Phone: ${phone}`);
+  lines.push(`WhatsApp: ${wapp}`);
+  lines.push(`Address: ${address}`);
+  lines.push('Ordered Items:');
+  lines.push(itemLines || 'None');
+  lines.push('Payment Details:');
+  lines.push(`Method: ${paymentMethod}`);
+  lines.push(`Subtotal: ${formatCurrency(subtotal)}`);
+  lines.push(`VAT: ${formatCurrency(tax)}`);
+  lines.push(`Total Bill: ${formatCurrency(subtotal + tax)}`);
+  return encodeURIComponent(lines.join('%0A'));
+}
+function finalizeOrder() {
+  const method = paymentOptionOnline?.checked ? 'Online Payment' : 'Cash on Delivery';
+  const msg = buildOrderMessage(method);
+  window.open(`https://wa.me/${WEBSITE_CONFIG.whatsappNumber}?text=${msg}`, '_blank');
+  closeOrderModal();
+}
+
 function initializeCartButtons() {
   const categoryButtons = document.querySelectorAll('.category-button');
   categoryButtons.forEach(button => button.addEventListener('click', filterMenu));
@@ -264,8 +348,14 @@ function initializeCartButtons() {
   openCartButtons.forEach(btn => btn.addEventListener('click', openCart));
   closeCart?.addEventListener('click', closeCartDrawer);
   cartBackdrop?.addEventListener('click', closeCartDrawer);
-  checkoutButton?.addEventListener('click', handleCheckout);
-  onlinePaymentButton?.addEventListener('click', handleOnlinePayment);
+  // Replace previous separate checkout buttons with unified Order Now flow
+  orderNowButton?.addEventListener('click', openOrderModal);
+  orderModalClose?.addEventListener('click', closeOrderModal);
+  // close when clicking backdrop
+  orderModal?.addEventListener('click', event => { if (event.target === document.getElementById('orderModal')) closeOrderModal(); });
+  proceedToPayment?.addEventListener('click', showPaymentStep);
+  backToDetails?.addEventListener('click', showDetailsStep);
+  confirmOrder?.addEventListener('click', finalizeOrder);
 }
 function initializeReservation() {
   if (!bookingForm) return;

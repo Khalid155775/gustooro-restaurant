@@ -129,14 +129,63 @@
               <span id="cartTotal">$0.00</span>
             </div>
             <div class="grid gap-3 sm:grid-cols-2">
-              <button id="checkoutButton" class="w-full rounded-3xl bg-amber-500 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-950 transition hover:bg-amber-400">Checkout with WhatsApp</button>
-              <button id="onlinePaymentButton" class="w-full rounded-3xl border border-slate-300 bg-white px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-950 transition hover:border-amber-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">Online Payment</button>
+                    <button id="orderNowButton" class="w-full rounded-3xl bg-amber-500 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-950 transition hover:bg-amber-400">Order Now</button>
+                  </div>
             </div>
           </div>
         </div>
       </aside>
 
       <div id="cartBackdrop" class="hidden fixed inset-0 bg-slate-950/40 backdrop-blur-sm"></div>
+    
+    <!-- Order Now Modal -->
+    <div id="orderModal" class="hidden fixed inset-0 z-50 flex items-center justify-center px-4">
+      <div id="orderModalBackdrop" class="absolute inset-0 bg-black/50"></div>
+      <div class="relative w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white p-6 shadow-2xl dark:bg-slate-900">
+        <button id="orderModalClose" class="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200">×</button>
+        <div id="orderStep1">
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-50">Delivery & Contact Details</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Please provide billing and shipping details to continue.</p>
+          <div class="mt-4 grid gap-3">
+            <input id="custPhone" type="text" placeholder="Phone Number" class="w-full rounded-xl border border-slate-200 px-4 py-3 dark:bg-slate-800 dark:border-slate-700" />
+            <input id="custWhatsApp" type="text" placeholder="WhatsApp Number" class="w-full rounded-xl border border-slate-200 px-4 py-3 dark:bg-slate-800 dark:border-slate-700" />
+            <input id="custAddress" type="text" placeholder="Delivery Address" class="w-full rounded-xl border border-slate-200 px-4 py-3 dark:bg-slate-800 dark:border-slate-700" />
+            <div class="grid grid-cols-2 gap-3">
+              <input id="custCity" type="text" placeholder="City" class="w-full rounded-xl border border-slate-200 px-4 py-3 dark:bg-slate-800 dark:border-slate-700" />
+              <input id="custCountry" type="text" placeholder="Country" class="w-full rounded-xl border border-slate-200 px-4 py-3 dark:bg-slate-800 dark:border-slate-700" />
+            </div>
+            <div class="mt-4 flex justify-end">
+              <button id="proceedToPayment" class="rounded-3xl bg-amber-500 px-6 py-3 text-sm font-semibold text-slate-950">Proceed to Payment</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="orderStep2" class="hidden">
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-50">Choose Payment Method</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Select payment method to finish your order.</p>
+          <div class="mt-4 grid gap-3">
+            <label class="flex items-center gap-3 rounded-xl border p-4">
+              <input id="paymentOptionCOD" name="paymentOption" type="radio" value="COD" checked />
+              <div>
+                <div class="font-semibold">Cash on Delivery</div>
+                <div class="text-sm text-slate-500">Pay when the order arrives.</div>
+              </div>
+            </label>
+            <label class="flex items-center gap-3 rounded-xl border p-4">
+              <input id="paymentOptionOnline" name="paymentOption" type="radio" value="Online" />
+              <div>
+                <div class="font-semibold">Online Payment</div>
+                <div class="text-sm text-slate-500">Pay via PayPal / Card (placeholder)</div>
+              </div>
+            </label>
+            <div class="mt-4 flex items-center justify-between">
+              <button id="backToDetails" class="rounded-3xl border border-slate-300 px-6 py-3 text-sm">Back</button>
+              <button id="confirmOrder" class="rounded-3xl bg-amber-500 px-6 py-3 text-sm font-semibold text-slate-950">Confirm Order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
     <script src="assets/js/main.js"></script>
   </body>
